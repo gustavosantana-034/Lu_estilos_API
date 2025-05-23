@@ -1,0 +1,28 @@
+# Core dependencies
+fastapi==0.104.1
+uvicorn==0.24.0
+pydantic==2.4.2
+pydantic-settings==2.0.3
+sqlalchemy==2.0.23
+alembic==1.12.1
+psycopg2-binary==2.9.9
+python-jose==3.3.0
+passlib==1.7.4
+python-multipart==0.0.6
+email-validator==2.1.0.post1
+python-dotenv==1.0.0
+
+# WhatsApp API integration
+requests==2.31.0
+
+# Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.1
+
+# Monitoring
+sentry-sdk==1.34.0
+
+# Dev tools
+black==23.10.1
+isort==5.12.0

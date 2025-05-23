@@ -1,0 +1,8 @@
+repos:
+  - repo: local
+    hooks:
+      - id: commit-msg-check
+        name: Check Conventional Commit
+        entry: bash scripts/check_commit.sh
+        language: system
+        stages: [commit-msg]
