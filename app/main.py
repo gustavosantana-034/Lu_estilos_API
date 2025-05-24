@@ -3,16 +3,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 import sentry_sdk
 import os
-
 from app.api.endpoints import auth, clients, products, orders, whatsapp
 from app.core.config import settings
 
 # Initialize Sentry for error monitoring
-if settings.SENTRY_DSN:
-    sentry_sdk.init(
-        dsn=settings.SENTRY_DSN,
-        traces_sample_rate=1.0,
-    )
+# if settings.SENTRY_DSN:
+#     sentry_sdk.init(
+#         dsn=settings.SENTRY_DSN,
+#         traces_sample_rate=1.0,
+#     )
 
 app = FastAPI(
     title="Lu Estilo API",
