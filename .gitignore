@@ -42,4 +42,4 @@ routesTest.http
 Thumbs.db
 
 authRoutes.http
-clientRoutes.http
+clientsRoutes.http
