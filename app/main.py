@@ -35,6 +35,7 @@ app.include_router(products.router, prefix="/products", tags=["Products"])
 app.include_router(orders.router, prefix="/orders", tags=["Orders"])
 app.include_router(whatsapp.router, prefix="/whatsapp", tags=["WhatsApp Integration"])
 
+
 # Global exception handler
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):

@@ -1,9 +1,10 @@
 
 venv/
 env/
+
 .env
 *.env
-
+!.env.example  # Exemplo seguro de uso
 
 *.sqlite3
 *.db
@@ -21,25 +22,24 @@ __pycache__/
 
 *.log
 
+*.tmp
+*.bak
+*.swp
+
 
 .vscode/
 .idea/
-*.swp
 
-*.tmp
-*.bak
 
 alembic/versions/
 
-
 routesTest.http
-
-
-.sentryclirc
+authRoutes.http
+clientsRoutes.http
+testApiWhatsApp.http
 
 
 .DS_Store
 Thumbs.db
 
-authRoutes.http
-clientsRoutes.http
+.sentryclirc
