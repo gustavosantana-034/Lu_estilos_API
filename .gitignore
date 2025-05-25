@@ -40,3 +40,6 @@ routesTest.http
 
 .DS_Store
 Thumbs.db
+
+authRoutes.http
+clientRoutes.http
