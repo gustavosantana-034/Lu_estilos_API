@@ -3,8 +3,9 @@ from typing import Optional, List
 from datetime import datetime
 from enum import Enum
 
-from app.models.order import OrderStatus
+from app.models.order import OrderStatus  # your enum defined in the ORM model
 
+# Base schema for order items with automatic calculation of total price
 class OrderItemBase(BaseModel):
     product_id: str
     quantity: int
@@ -29,23 +30,27 @@ class OrderItemBase(BaseModel):
             return values['quantity'] * values['unit_price']
         return v
 
+# Schema for creating order items
 class OrderItemCreate(OrderItemBase):
     pass
 
+# Schema representing an order item stored in the database
 class OrderItem(OrderItemBase):
     id: str
     order_id: str
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        orm_mode = True  # allows using ORM objects directly
 
+# Base schema for orders with main fields
 class OrderBase(BaseModel):
     client_id: str
     status: OrderStatus = OrderStatus.PENDING
     notes: Optional[str] = None
     total_amount: Optional[float] = None
 
+# Schema for creating an order with its items
 class OrderCreate(OrderBase):
     items: List[OrderItemCreate]
 
@@ -55,6 +60,7 @@ class OrderCreate(OrderBase):
             return sum(item.total_price for item in values['items'])
         return v or 0
 
+# Schema for partial update of the order
 class OrderUpdate(BaseModel):
     status: Optional[OrderStatus] = None
     notes: Optional[str] = None
@@ -62,15 +68,17 @@ class OrderUpdate(BaseModel):
     class Config:
         orm_mode = True
 
+# Schema for returning the order with its items, using ORM mode for serialization
 class OrderInDBBase(OrderBase):
     id: str
     created_at: datetime
     updated_at: Optional[datetime] = None
     created_by: Optional[str] = None
-    items: List[OrderItem] = []
+    items: List[OrderItem] = []  # list of order items
 
     class Config:
         orm_mode = True
 
+# Final schema to be used in responses
 class Order(OrderInDBBase):
     pass

@@ -19,12 +19,13 @@ class Order(Base):
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     client_id = Column(String, ForeignKey("clients.id"), nullable=False)
-    status = Column(Enum(OrderStatus), default=OrderStatus.PENDING)
+    status = Column(Enum(OrderStatus), default=OrderStatus.PENDING, nullable=False)
     total_amount = Column(Float, nullable=False)
-    notes = Column(String)
+    notes = Column(String, nullable=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
-    created_by = Column(String, ForeignKey("users.id"))
+    created_by = Column(String, ForeignKey("users.id"), nullable=True)
+    items = relationship("OrderItem", backref="order", cascade="all, delete-orphan")
 
 class OrderItem(Base):
     __tablename__ = "order_items"
