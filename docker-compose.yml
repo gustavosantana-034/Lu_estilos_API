@@ -8,7 +8,7 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/lu_estilo
+      - DATABASE_URL=postgresql://darkpwd25:dark123@db:5434/dbtest
       - SECRET_KEY=${SECRET_KEY}
       - ALGORITHM=HS256
       - ACCESS_TOKEN_EXPIRE_MINUTES=30
@@ -24,11 +24,13 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=lu_estilo
+      - POSTGRES_USER=darkpwd25
+      - POSTGRES_PASSWORD=dark123
+      - POSTGRES_DB=dbtest
     ports:
-      - "5432:5432"
+      - "5434:5432"
+    env_file:
+      - .env
 
 volumes:
   postgres_data:

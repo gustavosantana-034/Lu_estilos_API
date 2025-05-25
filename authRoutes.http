@@ -1,0 +1,29 @@
+### Register a new user
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{
+  "email": "eff.lira69@outlook.com",
+  "username": "jeje.lira",
+  "password": "Jejecook69",
+  "full_name": "Jefferson Lira"
+}
+
+### Log in the user
+POST http://localhost:8000/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+email=eff.lira69@outlook.com&password=Jejecook69
+
+### Update logged in user
+PUT http://localhost:8000/auth/users/me
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZDFmMjdjMy1hMDlhLTRiZTItYmY2NS0wYmRhMWI0NmNmM2YiLCJleHAiOjE3NDgxODkyMzJ9.9wEjQohVdxm3FhA7u-LQOWt81gk6amKODegkIRNX5x4
+
+{
+  "full_name": "Jefferson Bezzera de Lira",
+  "username": "jeje.lira25"
+}
+### Delete logged in user
+DELETE http://localhost:8000/auth/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhMTA5YTNjOC0zYjllLTRkMTYtYmRjMS0wN2ViMTllMzJiMWQiLCJleHAiOjE3NDgxMTI2ODJ9.UjOjIRFsViR6XMqcff6U7u1ddxbzV9A3W3xP1m2TZI4

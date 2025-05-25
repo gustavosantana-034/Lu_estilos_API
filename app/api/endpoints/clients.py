@@ -22,7 +22,7 @@ async def read_clients(
     """
     Retrieve clients with pagination and filtering options
     """
-    query = db.query(Client)
+    query = db.query(Client).filter(Client.created_by == current_user.id)
     
     # Apply filters if provided
     if name:

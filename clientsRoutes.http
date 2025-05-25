@@ -1,0 +1,20 @@
+### Create clients (POST /clients)
+POST http://127.0.0.1:8000/clients
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZDFmMjdjMy1hMDlhLTRiZTItYmY2NS0wYmRhMWI0NmNmM2YiLCJleHAiOjE3NDgxOTI0Nzh9.FvEse6XSVW90LkWin8k9Zntk8NC80ZdJvKKRB-VXJXc
+Accept: application/json
+
+{
+  "name": "Jefferson Lira",
+  "email": "jeje69@gmail.com",
+  "cpf": "118.993.350-09",
+  "phone": "(11) 9923455672",
+  "address": "Rua das Margaridas, 85",
+  "city": "São Paulo",
+  "state": "SP",
+  "postal_code": "01234-567",
+  "is_active": true
+}
+
+### Get all clients
+GET http://localhost:8000/clients
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZDFmMjdjMy1hMDlhLTRiZTItYmY2NS0wYmRhMWI0NmNmM2YiLCJleHAiOjE3NDgxOTI0Nzh9.FvEse6XSVW90LkWin8k9Zntk8NC80ZdJvKKRB-VXJXc
